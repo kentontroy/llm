@@ -1,5 +1,6 @@
 use clap::Parser;
 use dotenv::dotenv;
+use llm::{models::Llama, Model as _};
 use llm_base::conversation_inference_callback;
 use rustyline::error::ReadlineError;
 use std::{env, convert::Infallible, io::Write, path::PathBuf};
@@ -30,7 +31,7 @@ fn main() {
 
     let tokenizer_source = args.to_tokenizer_source();
     let model_path = args.model_path;
-    let model = llm::load(
+    let model: Llama = llm::load(
         &model_path,
         tokenizer_source,
         Default::default(),
@@ -54,7 +55,7 @@ fn main() {
 
     session
         .feed_prompt(
-            model.as_ref(),
+            &model,
             format!("{persona}\n{history}").as_str(),
             &mut Default::default(),
             llm::feed_prompt_callback(|resp| match resp {
@@ -82,7 +83,7 @@ fn main() {
             Ok(line) => {
                 let stats = session
                     .infer::<Infallible>(
-                        model.as_ref(),
+                        &model,
                         &mut rng,
                         &llm::InferenceRequest {
                             prompt: format!("{user_name}: {line}\n{character_name}:")
