@@ -1,4 +1,7 @@
 # Forked from https://github.com/rustformers/llm
+### Goals are to add support for MLflow with better tracing and run diagnostics
+### Include support for RAG in both the one-shot and chat examples
+### Develop a REST endpoint for model serving
 ```
 git clone -b testing https://github.com/rustformers/llm
 git submodule update --init
@@ -14,11 +17,12 @@ cargo build
 Enable scrolling in vi plugin for IDE:
 defaults write -g ApplePressAndHoldEnabled -bool false
 
-Older support for GGUF format:
-cargo run --release --example inference /Users/statisticalfx/Documents/Projects/StatisticalFX/LLM-MODELS/mistral-7b-v0.1.Q4_K_M.gguf -p "Explain Einstein's Theory of Relativity to a 6-th grader"
-
-Newer support for GGML format:
+Using autho's new support for GGML format:
 cargo run --release --example inference /Users/statisticalfx/Documents/Projects/StatisticalFX/LLM-MODELS/llama-2-7b-chat.ggmlv3.q4_K_M.bin -p "Explain Einstein's Theory of Relativity to a 6-th grader"
+
+Chat example:
+cargo run --release --example chat /Users/statisticalfx/Documents/Projects/StatisticalFX/LLM-MODELS/llama-2-7b-chat.ggmlv3.q4_K_M.bin
+
 ```
 
 # `llm` - Large Language Models for Everyone, in Rust
