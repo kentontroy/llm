@@ -1,3 +1,26 @@
+# Forked from https://github.com/rustformers/llm
+```
+git clone -b testing https://github.com/rustformers/llm
+git submodule update --init
+
+cargo build
+cargo add dotenv --package llm
+cargo add dotenv_codegen --package llm
+cargo add csv --package llm
+cargo add chrono --package llm
+cargo add reqwest --package llm
+cargo build
+
+Enable scrolling in vi plugin for IDE:
+defaults write -g ApplePressAndHoldEnabled -bool false
+
+Older support for GGUF format:
+cargo run --release --example inference /Users/statisticalfx/Documents/Projects/StatisticalFX/LLM-MODELS/mistral-7b-v0.1.Q4_K_M.gguf -p "Explain Einstein's Theory of Relativity to a 6-th grader"
+
+Newer support for GGML format:
+cargo run --release --example inference /Users/statisticalfx/Documents/Projects/StatisticalFX/LLM-MODELS/llama-2-7b-chat.ggmlv3.q4_K_M.bin -p "Explain Einstein's Theory of Relativity to a 6-th grader"
+```
+
 # `llm` - Large Language Models for Everyone, in Rust
 
 `llm` is an ecosystem of Rust libraries for working with large language models -
