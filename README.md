@@ -3,7 +3,7 @@
 ### Include RAG support for both the one-shot and chat examples
 ### Develop a REST endpoint for model serving
 ### Use file-based prompt templates
-### Incorporate support Intel's Advanced Matrix Extensions
+### Incorporate support for Intel's Advanced Matrix Extensions
 ```
 git clone -b testing https://github.com/kentontroy/rust_llm_studio
 cd rust_llm_studio
