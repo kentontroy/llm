@@ -2,6 +2,7 @@
 ### Goals are to add support for MLflow with better tracing and run diagnostics
 ### Include support for RAG in both the one-shot and chat examples
 ### Develop a REST endpoint for model serving
+### Incorporate support Intel's Advanced Matrix Extensions
 ```
 git clone -b testing https://github.com/rustformers/llm
 git submodule update --init
