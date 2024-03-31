@@ -1,24 +1,19 @@
 # Forked from https://github.com/rustformers/llm
-### Goals are to add support for MLflow with better tracing and run diagnostics
-### Include support for RAG in both the one-shot and chat examples
+### In-progress goals are to add support for MLflow with better tracing and run diagnostics
+### Include RAG support for both the one-shot and chat examples
 ### Develop a REST endpoint for model serving
+### Use file-based prompt templates
 ### Incorporate support Intel's Advanced Matrix Extensions
 ```
-git clone -b testing https://github.com/rustformers/llm
+git clone -b testing https://github.com/kentontroy/rust_llm_studio
+cd rust_llm_studio
 git submodule update --init
-
-cargo build
-cargo add dotenv --package llm
-cargo add dotenv_codegen --package llm
-cargo add csv --package llm
-cargo add chrono --package llm
-cargo add reqwest --package llm
 cargo build
 
 Enable scrolling in vi plugin for IDE:
 defaults write -g ApplePressAndHoldEnabled -bool false
 
-Using autho's new support for GGML format:
+Using author's new support for GGML format:
 cargo run --release --example inference /Users/statisticalfx/Documents/Projects/StatisticalFX/LLM-MODELS/llama-2-7b-chat.ggmlv3.q4_K_M.bin -p "Explain Einstein's Theory of Relativity to a 6-th grader"
 
 Chat example:
